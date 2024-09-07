@@ -103,12 +103,21 @@ export const featuresItems: MenuItem[] = [
     isHighlight: true,
   },
 ];
-export const plans: MenuItem[] = [
+export const solutions: MenuItem[] = [
   {
     name: 'Nx Cloud',
     description:
       'End-to-end solution for smart, efficient and maintainable CI.',
     href: '/nx-cloud',
+    icon: null,
+    isNew: false,
+    isHighlight: false,
+  },
+  {
+    name: 'Nx Powerpack',
+    description:
+      'Supercharge Nx with enterprise features such as custom remote caching, ownership tools, and more!',
+    href: '/powerpack',
     icon: null,
     isNew: false,
     isHighlight: false,
@@ -261,7 +270,7 @@ export const companyItems: MenuItem[] = [
   },
 ];
 export const solutionsMenuItems = {
-  'Helping you grow': plans,
+  'Helping you grow': solutions,
   // 'Use cases': useCaseItems
 };
 export const resourceMenuItems = {
