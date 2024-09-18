@@ -70,7 +70,7 @@ export async function initGenerator(
 ): Promise<GeneratorCallback> {
   return initGeneratorInternal(tree, {
     addTsConfigBase: true,
-    setUpPrettier: true,
+    formatter: 'prettier',
     addPlugin: false,
     ...schema,
   });
@@ -145,7 +145,7 @@ export async function initGeneratorInternal(
     }
   }
 
-  if (schema.setUpPrettier) {
+  if (schema.formatter === 'prettier') {
     devDependencies['prettier'] = prettierVersion;
 
     // https://prettier.io/docs/en/configuration.html
@@ -206,7 +206,7 @@ export async function initGeneratorInternal(
     : () => {};
   tasks.push(installTask);
 
-  if (schema.setUpPrettier) {
+  if (schema.formatter === 'prettier') {
     ensurePackage('prettier', prettierVersion);
     if (!schema.skipFormat) await formatFiles(tree);
   }
