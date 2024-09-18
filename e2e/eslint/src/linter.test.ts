@@ -35,10 +35,8 @@ describe('Linter', () => {
       projScope = newProject({
         packages: ['@nx/react', '@nx/js', '@nx/eslint'],
       });
-      runCLI(
-        `generate @nx/react:app ${myapp} --tags=validtag --directory=apps/${myapp}`
-      );
-      runCLI(`generate @nx/js:lib ${mylib} --directory=libs/${mylib}`);
+      runCLI(`generate @nx/react:app apps/${myapp} --tags=validtag`);
+      runCLI(`generate @nx/js:lib libs/${mylib} --linter=eslint`);
     });
     afterAll(() => cleanupProject());
 
@@ -211,13 +209,13 @@ describe('Linter', () => {
         const invalidtaglib = uniq('invalidtaglib');
         const validtaglib = uniq('validtaglib');
 
-        runCLI(`generate @nx/react:app ${myapp2} --directory=apps/${myapp2}`);
-        runCLI(`generate @nx/react:lib ${lazylib} --directory=libs/${lazylib}`);
+        runCLI(`generate apps/@nx/react:app ${myapp2}`);
+        runCLI(`generate libs/@nx/react:lib ${lazylib}`);
         runCLI(
-          `generate @nx/js:lib ${invalidtaglib} --tags=invalidtag --directory=libs/${invalidtaglib}`
+          `generate @nx/js:lib libs/${invalidtaglib} --linter=eslint --tags=invalidtag`
         );
         runCLI(
-          `generate @nx/js:lib ${validtaglib} --tags=validtag --directory=libs/${validtaglib}`
+          `generate @nx/js:lib libs/${validtaglib} --linter=eslint --tags=validtag`
         );
 
         const eslint = readJson('.eslintrc.json');
@@ -281,13 +279,13 @@ describe('Linter', () => {
       beforeAll(() => {
         // make these libs non-buildable to avoid dep-checks triggering lint errors
         runCLI(
-          `generate @nx/js:lib ${libA} --bundler=none --directory=libs/${libA}`
+          `generate @nx/js:lib libs/${libA} --linter=eslint --bundler=none`
         );
         runCLI(
-          `generate @nx/js:lib ${libB} --bundler=none --directory=libs/${libB}`
+          `generate @nx/js:lib libs/${libB} --linter=eslint --bundler=none`
         );
         runCLI(
-          `generate @nx/js:lib ${libC} --bundler=none --directory=libs/${libC}`
+          `generate @nx/js:lib libs/${libC} --linter=eslint --bundler=none`
         );
 
         /**
@@ -606,7 +604,7 @@ describe('Linter', () => {
           `generate @nx/react:lib ${reactLib} --directory=${reactLib} --projectNameAndRootFormat=as-provided`
         );
         runCLI(
-          `generate @nx/js:lib ${jsLib} --directory=${jsLib} --projectNameAndRootFormat=as-provided`
+          `generate @nx/js:lib ${jsLib} --directory=${jsLib} --linter=eslint --projectNameAndRootFormat=as-provided`
         );
 
         checkFilesExist(
@@ -699,7 +697,7 @@ describe('Linter', () => {
       expect(e2eOverrides).toContain('plugin:@nx/javascript');
 
       runCLI(
-        `generate @nx/js:lib ${mylib} --unitTestRunner=jest --directory=libs/${mylib}`
+        `generate @nx/js:lib libs/${mylib} --linter=eslint --unitTestRunner=jest`
       );
       verifySuccessfulMigratedSetup(myapp, mylib);
 
@@ -734,7 +732,7 @@ describe('Linter', () => {
       expect(e2eOverrides).toContain('plugin:@nx/javascript');
 
       runCLI(
-        `generate @nx/js:lib ${mylib} --no-interactive --directory=libs/${mylib}`
+        `generate @nx/js:lib libs/${mylib} --linter=eslint --no-interactive`
       );
       verifySuccessfulMigratedSetup(myapp, mylib);
 
@@ -769,7 +767,7 @@ describe('Linter', () => {
       expect(e2eOverrides).toContain('plugin:@nx/typescript');
 
       runCLI(
-        `generate @nx/js:lib ${mylib} --no-interactive --directory=libs/${mylib}`
+        `generate @nx/js:lib libs/${mylib} --linter=eslint --no-interactive`
       );
       verifySuccessfulMigratedSetup(myapp, mylib);
 
