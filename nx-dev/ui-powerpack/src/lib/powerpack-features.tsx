@@ -10,9 +10,9 @@ export function PowerpackFeatures(): ReactElement {
   return (
     <section className="relative isolate">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8">
-          <div className="col-span-2 flex max-w-2xl flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
-            <div className="max-w-2xl">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="col-span-full flex max-w-full flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-full lg:flex-row lg:items-center lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
+            <div className="max-w-full">
               <SectionHeading
                 as="h2"
                 variant="title"
@@ -42,11 +42,13 @@ export function PowerpackFeatures(): ReactElement {
                 </ButtonLink>
               </div>
             </div>
-            <div className="w-full">
+            <div className="mt-8 w-full lg:mt-0">
               <CustomRemoteCacheAnimation />
             </div>
           </div>
-          <div className="flex max-w-2xl flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:justify-between lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
+
+          {/* Adjust the other two items */}
+          <div className="flex flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:justify-between lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
             <div className="max-w-2xl">
               <SectionHeading
                 as="h2"
@@ -70,7 +72,7 @@ export function PowerpackFeatures(): ReactElement {
                 collaboration across large-scale projects.
               </p>
             </div>
-            <div className="flex justify-end">
+            <div className="flex">
               <ButtonLink
                 href="/some-docs-page"
                 title="Learn more about CodeOwners"
@@ -81,7 +83,7 @@ export function PowerpackFeatures(): ReactElement {
               </ButtonLink>
             </div>
           </div>
-          <div className="flex max-w-2xl flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:justify-between lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
+          <div className="flex flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:justify-between lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
             <div className="max-w-2xl">
               <SectionHeading
                 as="h2"
@@ -111,7 +113,7 @@ export function PowerpackFeatures(): ReactElement {
                 workspaces, regardless of your tech stack.
               </p>
             </div>
-            <div className="flex justify-end">
+            <div className="flex">
               <ButtonLink
                 href="/some-docs-page"
                 title="Learn how to set up conformance rules"
