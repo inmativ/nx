@@ -3,7 +3,7 @@ import { FC, RefObject, useEffect, useId, useState } from 'react';
 import { motion, TargetAndTransition } from 'framer-motion';
 import { cx } from '@nx/nx-dev/ui-primitives';
 
-export interface AnimatedBeamProps {
+export interface AnimatedCurvedBeamProps {
   className?: string;
   containerRef: RefObject<HTMLElement>; // Container ref
   fromRef: RefObject<HTMLElement>;
@@ -31,7 +31,7 @@ type BeamAnimation = {
   y2: [string, string];
 };
 
-export const AnimatedBeam: FC<AnimatedBeamProps> = ({
+export const AnimatedCurvedBeam: FC<AnimatedCurvedBeamProps> = ({
   className,
   containerRef,
   fromRef,
@@ -203,6 +203,168 @@ export const AnimatedBeam: FC<AnimatedBeamProps> = ({
             stopOpacity="0"
           ></stop>
         </motion.linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+export interface AnimatedAngledBeamProps {
+  className?: string;
+  containerRef: RefObject<HTMLElement>;
+  fromRef: RefObject<HTMLElement>;
+  toRef: RefObject<HTMLElement>;
+  reverse?: boolean;
+  pathColor?: string;
+  pathWidth?: number;
+  pathOpacity?: number;
+  gradientStartColor?: string;
+  gradientStopColor?: string;
+  delay?: number;
+  duration?: number;
+  startXOffset?: number;
+  startYOffset?: number;
+  endXOffset?: number;
+  endYOffset?: number;
+  bidirectional?: boolean;
+}
+
+export const AnimatedAngledBeam: FC<AnimatedAngledBeamProps> = ({
+  className,
+  containerRef,
+  fromRef,
+  toRef,
+  reverse = false,
+  duration = Math.random() * 3 + 8,
+  delay = 0,
+  pathColor = '#cbd5e1',
+  pathWidth = 2,
+  pathOpacity = 1,
+  gradientStartColor = '#ffaa40',
+  gradientStopColor = '#9c40ff',
+  startXOffset = 0,
+  startYOffset = 0,
+  endXOffset = 0,
+  endYOffset = 0,
+  bidirectional = false,
+}) => {
+  const id = useId();
+  const [pathD, setPathD] = useState('');
+  const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
+  const [totalLength, setTotalLength] = useState(0);
+
+  useEffect(() => {
+    const updatePath = () => {
+      if (containerRef.current && fromRef.current && toRef.current) {
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const fromRect = fromRef.current.getBoundingClientRect();
+        const toRect = toRef.current.getBoundingClientRect();
+
+        const svgWidth = containerRect.width;
+        const svgHeight = containerRect.height;
+        setSvgDimensions({ width: svgWidth, height: svgHeight });
+
+        const startX =
+          fromRect.left -
+          containerRect.left +
+          fromRect.width / 2 +
+          startXOffset;
+        const startY =
+          fromRect.top - containerRect.top + fromRect.height / 2 + startYOffset;
+        const endX =
+          toRect.left - containerRect.left + toRect.width / 2 + endXOffset;
+        const endY =
+          toRect.top - containerRect.top + toRect.height / 2 + endYOffset;
+
+        // Create a path with 90-degree angles
+        const midY = (startY + endY) / 2;
+        const d = `M ${startX},${startY} V ${midY} H ${endX} V ${endY}`;
+        setPathD(d);
+
+        // Calculate total length of the path
+        const tempPath = document.createElementNS(
+          'http://www.w3.org/2000/svg',
+          'path'
+        );
+        tempPath.setAttribute('d', d);
+        setTotalLength(tempPath.getTotalLength());
+      }
+    };
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        updatePath();
+      }
+    });
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    updatePath();
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [
+    containerRef,
+    fromRef,
+    toRef,
+    startXOffset,
+    startYOffset,
+    endXOffset,
+    endYOffset,
+  ]);
+
+  return (
+    <svg
+      fill="none"
+      width={svgDimensions.width}
+      height={svgDimensions.height}
+      xmlns="http://www.w3.org/2000/svg"
+      className={cx(
+        'pointer-events-none absolute left-0 top-0 transform-gpu stroke-2',
+        className
+      )}
+      viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
+    >
+      <path
+        d={pathD}
+        stroke={pathColor}
+        strokeWidth={pathWidth}
+        strokeOpacity={pathOpacity}
+        strokeLinecap="round"
+      />
+      <path
+        d={pathD}
+        strokeWidth={pathWidth}
+        stroke={`url(#${id})`}
+        strokeOpacity="1"
+        strokeLinecap="round"
+        strokeDasharray={totalLength}
+        strokeDashoffset="0"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          values={
+            bidirectional
+              ? `${reverse ? -totalLength : totalLength};${
+                  reverse ? totalLength : -totalLength
+                };${reverse ? -totalLength : totalLength}`
+              : `${reverse ? -totalLength : totalLength};${
+                  reverse ? totalLength : -totalLength
+                }`
+          }
+          dur={`${bidirectional ? duration * 2 : duration}s`}
+          repeatCount="indefinite"
+        />
+      </path>
+      <defs>
+        <linearGradient id={id} gradientUnits="userSpaceOnUse">
+          <stop stopColor={gradientStartColor} stopOpacity="0" offset="0%" />
+          <stop stopColor={gradientStartColor} offset="10%"></stop>
+          <stop stopColor={gradientStopColor} offset="90%"></stop>
+          <stop stopColor={gradientStopColor} stopOpacity="0" offset="100%" />
+        </linearGradient>
       </defs>
     </svg>
   );

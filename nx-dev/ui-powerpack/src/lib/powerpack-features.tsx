@@ -2,9 +2,13 @@
 import { forwardRef, ReactElement, ReactNode, useRef } from 'react';
 import { ButtonLink, SectionHeading, Strong } from '@nx/nx-dev/ui-common';
 import { cx } from '@nx/nx-dev/ui-primitives';
-import { AnimatedBeam } from '@nx/nx-dev/ui-animations';
-import { ComputerDesktopIcon } from '@heroicons/react/24/outline';
-import { AmazonS3Icon, GitHubIcon, GitlabIcon } from '@nx/nx-dev/ui-icons';
+import { AnimatedAngledBeam } from '@nx/nx-dev/ui-animations';
+import {
+  CalendarDaysIcon,
+  CircleStackIcon,
+  ServerIcon,
+} from '@heroicons/react/24/outline';
+import { NxIcon } from '@nx/nx-dev/ui-icons';
 
 export function PowerpackFeatures(): ReactElement {
   return (
@@ -12,7 +16,7 @@ export function PowerpackFeatures(): ReactElement {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="col-span-full flex max-w-full flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-full lg:flex-row lg:items-center lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
-            <div className="max-w-full">
+            <div className="xl:max-w-xl">
               <SectionHeading
                 as="h2"
                 variant="title"
@@ -38,12 +42,11 @@ export function PowerpackFeatures(): ReactElement {
                 </ButtonLink>
               </div>
             </div>
-            <div className="mt-8 w-full lg:mt-0">
+            <div className="hidden w-full lg:block">
               <CustomRemoteCacheAnimation />
             </div>
           </div>
 
-          {/* Adjust the other two items */}
           <div className="flex flex-col gap-16 bg-white/50 px-6 py-16 ring-1 ring-slate-200 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:justify-between lg:py-16 xl:px-16 dark:bg-white/5 dark:ring-white/10">
             <div className="max-w-2xl">
               <SectionHeading
@@ -141,7 +144,7 @@ export function PowerpackFeatures(): ReactElement {
   );
 }
 
-const Circle = forwardRef<
+const Card = forwardRef<
   HTMLDivElement,
   { className?: string; children?: ReactNode }
 >(({ className, children }, ref) => {
@@ -149,7 +152,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cx(
-        'border-1 z-10 flex size-12 items-center justify-center rounded-full border-slate-200 bg-white p-3 shadow-sm dark:border-white/10 dark:bg-slate-950',
+        'z-10 flex flex-col items-center justify-between rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-slate-950',
         className
       )}
     >
@@ -158,97 +161,100 @@ const Circle = forwardRef<
   );
 });
 
-Circle.displayName = 'Circle';
+Card.displayName = 'Card';
 
 export function CustomRemoteCacheAnimation(): ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
   const gitHubRef = useRef<HTMLDivElement>(null);
-  const computer3Ref = useRef<HTMLDivElement>(null);
-  const computer1Ref = useRef<HTMLDivElement>(null);
-  const amazonBucketRef = useRef<HTMLDivElement>(null);
-  const computer2Ref = useRef<HTMLDivElement>(null);
+  const gitlabRef = useRef<HTMLDivElement>(null);
+  const nxRef = useRef<HTMLDivElement>(null);
+  const computerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div
-      className="relative flex h-[150px] w-full justify-between gap-8"
-      ref={containerRef}
-    >
-      <div className="flex w-full items-center justify-center gap-16">
-        <div className="flex flex-col items-center gap-12">
-          <Circle ref={computer1Ref}>
-            <GitlabIcon
-              aria-hidden="true"
-              className="size-6 text-slate-900 dark:text-white"
-            />
-          </Circle>
-          <Circle ref={computer2Ref}>
-            <ComputerDesktopIcon
-              aria-hidden="true"
-              className="size-6 text-slate-900 dark:text-white"
-            />
-          </Circle>
-        </div>
+    <div className="relative flex h-full w-full" ref={containerRef}>
+      <div className="flex w-full flex-col items-center justify-center gap-24">
         <div className="flex w-full justify-center">
-          <Circle ref={amazonBucketRef} className="size-16">
-            <AmazonS3Icon
+          <Card ref={nxRef} className="size-18 relative">
+            <NxIcon
               aria-hidden="true"
-              className="size-8 text-slate-900 dark:text-white"
+              className="size-10 text-slate-900 dark:text-white"
             />
-          </Circle>
+            <CircleStackIcon
+              aria-hidden="true"
+              className="absolute bottom-1 right-1 size-5 text-slate-900 dark:text-white"
+            />
+          </Card>
         </div>
-        <div className="flex flex-col items-center gap-12">
-          <Circle ref={computer3Ref}>
-            <ComputerDesktopIcon
-              aria-hidden="true"
-              className="size-6 text-slate-900 dark:text-white"
-            />
-          </Circle>
-          <Circle ref={gitHubRef}>
-            <GitHubIcon
-              aria-hidden="true"
-              className="size-6 text-slate-900 dark:text-white"
-            />
-          </Circle>
+        <div className="grid w-full grid-cols-3 items-stretch gap-4">
+          <Card ref={gitlabRef}>
+            <div className="text-center text-sm text-slate-900 dark:text-white">
+              AWS
+            </div>
+            <div className="mt-2 text-center text-2xl font-semibold">S3</div>
+
+            <ButtonLink
+              href="#"
+              title="Learn more about AWS S3 connector for Nx"
+              variant="secondary"
+              size="small"
+              className="mt-4"
+            >
+              Learn more
+            </ButtonLink>
+          </Card>
+          <Card ref={computerRef}>
+            <div className="text-center text-sm text-slate-900 dark:text-white">
+              Network drive
+            </div>
+            <ServerIcon aria-hidden="true" className="size-6" />
+
+            <ButtonLink
+              href="#"
+              title="Learn more about AWS S3 connector for Nx"
+              variant="secondary"
+              size="small"
+              className="mt-4"
+            >
+              Learn more
+            </ButtonLink>
+          </Card>
+          <Card ref={gitHubRef}>
+            <div className="text-center text-sm text-slate-900 dark:text-white">
+              More soon!
+            </div>
+            <CalendarDaysIcon aria-hidden="true" className="size-6" />
+            <div className="mt-4 size-8" />
+          </Card>
         </div>
       </div>
 
-      <AnimatedBeam
+      <AnimatedAngledBeam
         containerRef={containerRef}
-        fromRef={computer1Ref}
-        toRef={amazonBucketRef}
-        curvature={35}
+        fromRef={gitlabRef}
+        toRef={nxRef}
         endYOffset={0}
         bidirectional={true}
-        duration={14}
+        duration={3}
       />
-      <AnimatedBeam
+      <AnimatedAngledBeam
         containerRef={containerRef}
-        fromRef={computer2Ref}
-        toRef={amazonBucketRef}
-        curvature={-35}
-        endYOffset={20}
+        fromRef={computerRef}
+        toRef={nxRef}
+        startYOffset={0}
+        endYOffset={0}
+        startXOffset={0}
+        endXOffset={0}
         bidirectional={true}
-        duration={14}
+        duration={3}
         delay={1}
       />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={computer3Ref}
-        toRef={amazonBucketRef}
-        curvature={35}
-        endYOffset={0}
-        bidirectional={true}
-        duration={14}
-        delay={3}
-      />
-      <AnimatedBeam
+      <AnimatedAngledBeam
         containerRef={containerRef}
         fromRef={gitHubRef}
-        toRef={amazonBucketRef}
-        curvature={-35}
-        endYOffset={20}
+        toRef={nxRef}
+        endYOffset={0}
         bidirectional={true}
-        duration={14}
+        duration={3}
         delay={2}
       />
     </div>
