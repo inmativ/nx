@@ -24,7 +24,7 @@ const ConnectingLine = () => (
   </div>
 );
 
-export function PowerPackProcess() {
+export function PowerpackProcess() {
   return (
     <section
       id="power-pack-process"

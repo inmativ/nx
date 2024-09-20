@@ -1,69 +1,81 @@
 'use client';
-import { useState } from 'react';
-import { CheckIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { ButtonLink } from '@nx/nx-dev/ui-common';
-import Link from 'next/link';
 
 export function PowerpackPricing() {
-  const [isYearly, setIsYearly] = useState(false);
-  const monthlyPrice = 26;
-  const yearlyPrice = 250; // 10 months for the price of 12
-
   return (
-    <article className="relative rounded-b-xl bg-white px-4 py-6 ring-1 ring-blue-500 xl:px-6 xl:py-8 dark:bg-slate-950 dark:ring-sky-500">
-      <h4 className="absolute -top-9 left-0 w-full rounded-tl-lg rounded-tr-lg bg-blue-500 p-2 text-center text-sm font-medium text-white shadow-inner ring-1 ring-blue-500 dark:bg-sky-500 dark:ring-sky-500">
-        Get Nx Powerpack
-      </h4>
+    <aside>
+      {/*<h4 className="text-lg font-medium leading-6 text-slate-900 dark:text-slate-100">*/}
+      {/*  Nx Powerpack license subscription*/}
+      {/*</h4>*/}
 
-      <div className="mb-6 text-center">
-        <p className="text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-          ${isYearly ? yearlyPrice : monthlyPrice}
-        </p>
-        <p className="text-lg text-slate-600 dark:text-slate-400">
-          {isYearly ? 'per year' : 'per month'} / seat
-        </p>
-      </div>
-
-      <div className="mb-6 flex items-center justify-center">
-        <span className={`mr-2 ${!isYearly ? 'font-bold' : ''}`}>Monthly</span>
-        <button
-          onClick={() => setIsYearly(!isYearly)}
-          className="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-slate-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-slate-700"
-        >
-          <span
-            className={`${
-              isYearly ? 'translate-x-5' : 'translate-x-0'
-            } inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out`}
-          />
-        </button>
-        <span className={`ml-2 ${isYearly ? 'font-bold' : ''}`}>Yearly</span>
-      </div>
-
-      <ButtonLink
-        href="https://nx.app/nx-powerpack/purchase?utm_source=nx.dev&utm_medium=referral&utm_campaign=nx-powerpackurl"
-        title="Buy your license"
-        size="default"
-        className="mb-4 w-full"
-      >
-        Buy your license
-      </ButtonLink>
-
-      <div className="text-center">
-        <Link
-          href="/contact"
-          title="Contact us"
-          prefetch={false}
-          className="group text-sm font-medium leading-6 text-slate-950 dark:text-white"
-        >
-          Questions? Reach out to us
-          <span
-            aria-hidden="true"
-            className="inline-block transition group-hover:translate-x-1"
+      <div className="flex flex-col gap-2">
+        <div className="group relative flex w-full items-center justify-between gap-8 rounded-md border border-slate-200 bg-white px-6 py-4 transition hover:bg-white/90 hover:shadow dark:border-slate-800/60 dark:bg-slate-900/60 dark:hover:bg-slate-900/100">
+          <a
+            href="https://cloud.nx.app/nx-powerpack/purchase?utm_source=nx.dev&utm_medium=referral&utm_campaign=nx-powerpackurl"
+            title="Buy your license"
+            className="flex items-center gap-2"
           >
-            →
-          </span>
-        </Link>
+            <span className="absolute inset-0" />
+
+            <ArrowRightIcon aria-hidden="true" className="size-4" />
+            <span className="text-sm font-medium leading-none text-slate-900 dark:text-slate-50">
+              Billed annually
+            </span>
+            <span className="inline-flex items-center gap-x-1 whitespace-nowrap rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-900 ring-1 ring-inset ring-blue-500/30 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-blue-400/30">
+              Save 20%
+            </span>
+          </a>
+          <p className="text-base">
+            <span className="font-semibold text-slate-950 dark:text-white">
+              $250
+            </span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">
+              /seat
+            </span>
+          </p>
+        </div>
       </div>
-    </article>
+      <div className="mt-4 flex flex-col gap-2">
+        <div className="group relative flex w-full items-center justify-between gap-8 rounded-md border border-slate-200 bg-white px-6 py-4 transition hover:bg-white/90 hover:shadow dark:border-slate-800/60 dark:bg-slate-900/60 dark:hover:bg-slate-900/100">
+          <a
+            href="https://cloud.nx.app/nx-powerpack/purchase?utm_source=nx.dev&utm_medium=referral&utm_campaign=nx-powerpackurl"
+            title="Buy your license"
+            className="flex items-center gap-2"
+          >
+            <span className="absolute inset-0" />
+            <ArrowRightIcon aria-hidden="true" className="size-4" />
+            <span className="text-sm font-medium leading-none text-slate-900 dark:text-slate-50">
+              Billed monthly
+            </span>
+          </a>
+          <p className="text-base">
+            <span className="font-semibold text-slate-950 dark:text-white">
+              $26
+            </span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">
+              /seat
+            </span>
+          </p>
+          {/*<div className="absolute inset-0 translate-y-full transition-all group-hover/monthly:translate-y-0">*/}
+          {/*  <div className="grid h-full w-full place-items-center text-center">*/}
+          {/*    <a href="#">*/}
+          {/*      <span className="absolute inset-0"></span> Buy your license*/}
+          {/*    </a>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
+        </div>
+      </div>
+      <div className="mt-4 flex flex-col gap-2">
+        <ButtonLink
+          href="https://cloud.nx.app/nx-powerpack/purchase?utm_source=nx.dev&utm_medium=referral&utm_campaign=nx-powerpackurl"
+          title="Talk to the engineering team"
+          variant="primary"
+          size="default"
+        >
+          Buy your Nx Powerpacklicense
+        </ButtonLink>
+      </div>
+    </aside>
   );
 }

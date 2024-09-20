@@ -1,12 +1,10 @@
+import { DefaultLayout } from '@nx/nx-dev/ui-common';
 import {
-  CustomCacheStorage,
-  CodeOwners,
-  Conformance,
+  CallToAction,
+  GetStarted,
   Hero,
-  PowerPackProcess,
+  PowerpackFeatures,
 } from '@nx/nx-dev/ui-powerpack';
-
-import { CallToAction, DefaultLayout } from '@nx/nx-dev/ui-common';
 
 import type { Metadata } from 'next';
 
@@ -39,21 +37,15 @@ export default function NxPowerPackPage(): JSX.Element {
       <Hero />
 
       <div className="mt-32 scroll-mt-32 lg:mt-56" id="features">
-        <CustomCacheStorage />
+        <PowerpackFeatures />
       </div>
-      <div className="mt-32 lg:mt-56">
-        <CodeOwners />
-      </div>
-      <div className="mt-32 lg:mt-56">
-        <Conformance />
+
+      <div className="mt-32 scroll-mt-32 lg:mt-56">
+        <GetStarted />
       </div>
 
       <div className="mt-32 lg:mt-56">
-        <PowerPackProcess />
-        {/* <CallToAction
-          mainActionTitle="Get started with Nx PowerPack"
-          mainActionLink="/docs/powerpack/getting-started"
-        /> */}
+        <CallToAction />
       </div>
     </DefaultLayout>
   );
