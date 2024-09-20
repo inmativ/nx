@@ -136,19 +136,19 @@ export function GetStarted(): ReactElement {
               </div>
               <div>
                 <h4 className="relative text-base font-medium leading-6 text-slate-900 dark:text-slate-100">
-                  Install Powerpack plugins and enjoy your enhanced setup
+                  Install Powerpack plugins
                 </h4>
                 <p className="mt-2">
                   Install Powerpack plugins such as{' '}
                   <TextLink
                     href="#custom-remote-cache-storage"
-                    title="Custom Remote Cache Storage"
+                    title="Custom remote cache storage"
                   >
-                    Custom Remote Cache Storage
+                    Custom remote cache storage
                   </TextLink>
                   ,{' '}
                   <TextLink href="#workspace-conformance" title="Conformance">
-                    Conformance
+                    conformance
                   </TextLink>
                   , and{' '}
                   <TextLink
