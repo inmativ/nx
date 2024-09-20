@@ -95,7 +95,7 @@ export async function libraryGeneratorInternal(
         : 'tsconfig.base.json',
       addTsConfigBase: true,
       // In the new setup, Prettier is prompted for and installed during `create-nx-workspace`.
-      formatter: process.env.NX_ADD_TS_PLUGIN ? 'none' : 'prettier',
+      formatter: options.isUsingTsSolutionConfig ? 'none' : 'prettier',
     })
   );
 
@@ -763,7 +763,7 @@ async function normalizeOptions(
     }>(
       {
         type: 'select',
-        name: 'linter',
+        name: 'unitTestRunner',
         message: `Which unit test runner would you like to use?`,
         choices: [{ name: 'none' }, { name: 'jest' }, { name: 'vitest' }],
         initial: 0,
@@ -833,7 +833,7 @@ async function normalizeOptions(
     }>(
       {
         type: 'select',
-        name: 'linter',
+        name: 'unitTestRunner',
         message: `Which unit test runner would you like to use?`,
         choices: [{ name: 'jest' }, { name: 'vitest' }, { name: 'none' }],
         initial: 0,
