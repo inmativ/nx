@@ -19,18 +19,13 @@ export function PowerpackFeatures(): ReactElement {
                 id="custom-remote-cache-storage"
                 className="scroll-mt-48"
               >
-                Custom remote cache storage
+                Self-hosted cache storage
               </SectionHeading>
               <p className="mt-6 text-pretty text-lg">
-                Enjoy the{' '}
-                <Strong>
-                  flexibility of managing your remote cache location
-                </Strong>{' '}
-                on S3 or custom network drives. With Nx Powerpack's custom
-                remote caching feature, you can configure Nx to write cache data
-                directly to your own AWS S3 buckets or network drives, whether
-                your infrastructure is already in place or you need more control
-                over your caching location.
+                Nx Powerpack enables you to use <Strong>AWS S3</Strong> or a{' '}
+                <Strong>custom network drive</Strong> as your remote cache
+                storage, offering a flexible, self-managed solution for faster
+                builds.
               </p>
               <div className="mt-16">
                 <ButtonLink
