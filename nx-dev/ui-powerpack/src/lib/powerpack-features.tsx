@@ -53,7 +53,7 @@ export function PowerpackFeatures(): ReactElement {
                 variant="title"
                 id="custom-remote-cache-storage"
               >
-                CodeOwners: for monorepos
+                CODEOWNERS for monorepos
               </SectionHeading>
               <p className="mt-6 text-pretty text-lg">
                 Common VCS providers require folder-based ownership definitions.
@@ -61,7 +61,7 @@ export function PowerpackFeatures(): ReactElement {
                 <Strong>at the project level</Strong>
               </p>
               <p className="mt-6 text-pretty text-lg">
-                Nx Powerpack CodeOwners bridges this gap by{' '}
+                Nx Powerpack CODEOWNERS bridges this gap by{' '}
                 <Strong>
                   automatically tracking changes and syncing ownership data
                 </Strong>{' '}

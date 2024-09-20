@@ -1,6 +1,5 @@
 'use client';
 import { ButtonLink, SectionHeading, Strong } from '@nx/nx-dev/ui-common';
-import { PowerpackPricing } from './powerpack-pricing';
 import { ReactElement } from 'react';
 
 export function Hero(): ReactElement {
@@ -21,7 +20,7 @@ export function Hero(): ReactElement {
             variant="primary"
             size="default"
           >
-            Buy an Nx Powerpack license
+            Get Powerpack
           </ButtonLink>
         </div>
       </div>

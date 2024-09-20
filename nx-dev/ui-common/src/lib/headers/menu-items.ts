@@ -116,7 +116,7 @@ export const solutions: MenuItem[] = [
   {
     name: 'Nx Powerpack',
     description:
-      'Supercharge Nx with enterprise features such as custom remote caching, ownership tools, and more!',
+      'A suite of paid extensions for Nx specifically designed for enterprises.',
     href: '/powerpack',
     icon: null,
     isNew: false,
