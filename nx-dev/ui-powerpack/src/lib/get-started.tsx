@@ -1,4 +1,4 @@
-import { SectionHeading } from '@nx/nx-dev/ui-common';
+import { SectionHeading, TextLink } from '@nx/nx-dev/ui-common';
 import { ReactElement } from 'react';
 import { TerminalOutput } from '@nx/nx-dev/ui-fence';
 import { PowerpackPricing } from './powerpack-pricing';
@@ -96,8 +96,8 @@ export function GetStarted(): ReactElement {
                   Buy an Nx Powerpack license
                 </h4>
                 <p className="mt-2">
-                  Select which type of license to subscribe to for your own
-                  needs with monthly payments or pay once for the whole year.
+                  Select between monthly payments or a one-time annual fee for
+                  your license.
                 </p>
                 <div className="mx-auto mt-4 max-w-md">
                   <PowerpackPricing />
@@ -115,9 +115,8 @@ export function GetStarted(): ReactElement {
                   Activate Nx Powerpack right from your terminal
                 </h4>
                 <p className="mt-2">
-                  The setup is simple and straightforward. Run one command to
-                  activate your license and start adding unique capabilities to
-                  your workspace.
+                  In your Nx workspace, run the following command to activate
+                  your new license.
                 </p>
                 <div className="mt-4">
                   <TerminalOutput
@@ -137,12 +136,28 @@ export function GetStarted(): ReactElement {
               </div>
               <div>
                 <h4 className="relative text-base font-medium leading-6 text-slate-900 dark:text-slate-100">
-                  Enjoy your enhanced setup
+                  Install Powerpack plugins and enjoy your enhanced setup
                 </h4>
                 <p className="mt-2">
-                  Use Nx Powerpack to enhance your development experience with
-                  custom remote caching, Conformance, Workspace wide code
-                  ownership and more premium official Nx Plugins.
+                  Install Powerpack plugins such as{' '}
+                  <TextLink
+                    href="#custom-remote-cache-storage"
+                    title="Custom Remote Cache Storage"
+                  >
+                    Custom Remote Cache Storage
+                  </TextLink>
+                  ,{' '}
+                  <TextLink href="#workspace-conformance" title="Conformance">
+                    Conformance
+                  </TextLink>
+                  , and{' '}
+                  <TextLink
+                    href="#codeowners-for-monorepos"
+                    title="CODEOWNERS for monorepos"
+                  >
+                    CODEOWNERS for monorepos
+                  </TextLink>
+                  .
                 </p>
               </div>
             </div>

@@ -17,6 +17,7 @@ export function PowerpackFeatures(): ReactElement {
                 as="h2"
                 variant="title"
                 id="custom-remote-cache-storage"
+                className="scroll-mt-48"
               >
                 Custom remote cache storage
               </SectionHeading>
@@ -53,7 +54,8 @@ export function PowerpackFeatures(): ReactElement {
               <SectionHeading
                 as="h2"
                 variant="title"
-                id="custom-remote-cache-storage"
+                id="codeowners-for-monorepos"
+                className="scroll-mt-48"
               >
                 CODEOWNERS for monorepos
               </SectionHeading>
@@ -88,7 +90,8 @@ export function PowerpackFeatures(): ReactElement {
               <SectionHeading
                 as="h2"
                 variant="title"
-                id="custom-remote-cache-storage"
+                id="workspace-conformance"
+                className="scroll-mt-48"
               >
                 Workspace conformance
               </SectionHeading>
