@@ -56,9 +56,9 @@ export function PowerpackFeatures(): ReactElement {
                 CodeOwners: for monorepos
               </SectionHeading>
               <p className="mt-6 text-pretty text-lg">
-                Define and manage ownership where it matters—
-                <Strong>at the project level</Strong>. Common VCS providers
-                require folder-based ownership definitions, though.
+                Common VCS providers require folder-based ownership definitions.
+                Now, define and manage ownership where it matters—
+                <Strong>at the project level</Strong>
               </p>
               <p className="mt-6 text-pretty text-lg">
                 Nx Powerpack CodeOwners bridges this gap by{' '}
@@ -98,7 +98,7 @@ export function PowerpackFeatures(): ReactElement {
                 </Strong>
                 , leveraging built-in rules or{' '}
                 <Strong>
-                  creating your own to ensure compliance with organizational
+                  create your own to ensure compliance with organizational
                   standards.
                 </Strong>
               </p>
@@ -108,7 +108,7 @@ export function PowerpackFeatures(): ReactElement {
                   upload your custom rules to your Nx Cloud organization
                 </Strong>{' '}
                 and automatically enforce them across multiple repositories and
-                workspaces, regardless of the tech stack.
+                workspaces, regardless of your tech stack.
               </p>
             </div>
             <div className="flex justify-end">

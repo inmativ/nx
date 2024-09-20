@@ -96,8 +96,8 @@ export function GetStarted(): ReactElement {
                   Buy an Nx Powerpack license
                 </h4>
                 <p className="mt-2">
-                  Select with type of license to subscribe to for your own needs
-                  with monthly payments or pay once for the whole year.
+                  Select which type of license to subscribe to for your own
+                  needs with monthly payments or pay once for the whole year.
                 </p>
                 <div className="mx-auto mt-4 max-w-md">
                   <PowerpackPricing />

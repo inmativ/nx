@@ -57,13 +57,6 @@ export function PowerpackPricing() {
               /seat
             </span>
           </p>
-          {/*<div className="absolute inset-0 translate-y-full transition-all group-hover/monthly:translate-y-0">*/}
-          {/*  <div className="grid h-full w-full place-items-center text-center">*/}
-          {/*    <a href="#">*/}
-          {/*      <span className="absolute inset-0"></span> Buy your license*/}
-          {/*    </a>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </div>
       </div>
       <div className="mt-4 flex flex-col gap-2">
@@ -73,7 +66,7 @@ export function PowerpackPricing() {
           variant="primary"
           size="default"
         >
-          Buy your Nx Powerpacklicense
+          Buy your Nx Powerpack license
         </ButtonLink>
       </div>
     </aside>
