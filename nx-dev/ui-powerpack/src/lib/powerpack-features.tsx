@@ -55,7 +55,7 @@ export function PowerpackFeatures(): ReactElement {
                 id="codeowners-for-monorepos"
                 className="scroll-mt-48"
               >
-                CODEOWNERS for monorepos
+                Codeowners for monorepos
               </SectionHeading>
               <p className="mt-6 text-pretty text-lg">
                 Common VCS providers require folder-based ownership definitions.
@@ -75,11 +75,11 @@ export function PowerpackFeatures(): ReactElement {
             <div className="flex">
               <ButtonLink
                 href="/some-docs-page"
-                title="Learn more about CodeOwners"
+                title="Learn more about Codeowners"
                 variant="secondary"
                 size="default"
               >
-                Learn more about CodeOwners
+                Learn more about Codeowners
               </ButtonLink>
             </div>
           </div>
@@ -194,12 +194,12 @@ export function CustomRemoteCacheAnimation(): ReactElement {
 
             <ButtonLink
               href="#"
-              title="Learn more about AWS S3 connector for Nx"
+              title="Learn how to configure AWS S3 caching"
               variant="secondary"
               size="small"
               className="mt-4"
             >
-              Learn more
+              Get started
             </ButtonLink>
           </Card>
           <Card ref={computerRef}>
@@ -210,12 +210,12 @@ export function CustomRemoteCacheAnimation(): ReactElement {
 
             <ButtonLink
               href="#"
-              title="Learn more about AWS S3 connector for Nx"
+              title="Learn how to configure network drive caching"
               variant="secondary"
               size="small"
               className="mt-4"
             >
-              Learn more
+              Get started
             </ButtonLink>
           </Card>
           <Card ref={gitHubRef}>

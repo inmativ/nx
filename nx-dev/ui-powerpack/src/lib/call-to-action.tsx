@@ -54,9 +54,7 @@ export function CallToAction(): ReactElement {
           id="cta"
           className="text-3xl font-medium tracking-tight text-slate-950 sm:text-5xl dark:text-white"
         >
-          Get your
-          <br />
-          Nx Powerpack license
+          Ready to enhance your CLI?
         </h2>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <a
@@ -64,7 +62,7 @@ export function CallToAction(): ReactElement {
             title="Get your Nx Powerapp license"
             className="rounded-md bg-slate-950 px-3.5 py-2.5 text-sm font-semibold text-slate-100 shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
           >
-            Buy now
+            Get Nx Powerpack
           </a>
           <Link
             href="/contact"
