@@ -63,7 +63,7 @@ export function PowerpackFeatures(): ReactElement {
                 <Strong>at the project level</Strong>
               </p>
               <p className="mt-6 text-pretty text-lg">
-                Nx Powerpack CODEOWNERS bridges this gap by{' '}
+                Nx Powerpack codeowners bridges this gap by{' '}
                 <Strong>
                   automatically tracking changes and syncing ownership data
                 </Strong>{' '}
