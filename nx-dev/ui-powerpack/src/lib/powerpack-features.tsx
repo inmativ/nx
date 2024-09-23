@@ -20,7 +20,7 @@ export function PowerpackFeatures(): ReactElement {
               <SectionHeading
                 as="h2"
                 variant="title"
-                id="custom-remote-cache-storage"
+                id="self-hosted-cache-storage"
                 className="scroll-mt-48"
               >
                 Self-hosted cache storage
@@ -38,7 +38,7 @@ export function PowerpackFeatures(): ReactElement {
                   variant="secondary"
                   size="default"
                 >
-                  Learn more about Custom Cache Storage
+                  Learn more about self-hosted cache storage
                 </ButtonLink>
               </div>
             </div>
@@ -75,11 +75,11 @@ export function PowerpackFeatures(): ReactElement {
             <div className="flex">
               <ButtonLink
                 href="/some-docs-page"
-                title="Learn more about Codeowners"
+                title="Learn more about codeowners"
                 variant="secondary"
                 size="default"
               >
-                Learn more about Codeowners
+                Learn more about codeowners
               </ButtonLink>
             </div>
           </div>
@@ -99,7 +99,7 @@ export function PowerpackFeatures(): ReactElement {
                 <Strong>
                   define and run conformance rules throughout your workspace
                 </Strong>
-                , leveraging built-in rules or{' '}
+                , leverage built-in rules or{' '}
                 <Strong>
                   create your own to ensure compliance with organizational
                   standards.
